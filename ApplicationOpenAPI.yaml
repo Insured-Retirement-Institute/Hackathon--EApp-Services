@@ -33,6 +33,29 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Stage'
+  /application/templates:
+    get:
+      tags:
+        - Application
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppTemplate'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppTemplate'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppTemplate'
   /submit:
     post:
       summary: Submit a completed application
@@ -82,7 +105,30 @@ paths:
                     type: string
                     enum: ['error']
                     example: 'error'
-
+  '/application/submit/{applicationId}':
+    get:
+      tags:
+        - Application
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppSubmit'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppSubmit'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppSubmit'
 components:
   schemas:
     Stage:
@@ -96,6 +142,34 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DataItem'
+    AppTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AppSubmit:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        dataItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataItemPost'
+          nullable: true
+        submittedDate:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
     DataItem:
       type: object
       properties:
