@@ -1,0 +1,142 @@
+openapi: 3.0.0
+info:
+  title: Application API
+  version: 1.0.0
+  description: This an Application API.
+
+paths:
+  /template/{templateId}:
+    get:
+      summary: Get stages data
+      parameters:
+      - name: templateId
+        in: path
+        required: true
+        description: The unique identifier for the application template
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: A list of stages
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  callbackUrl:
+                    type: string
+                  stages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Stage'
+  /submit:
+    post:
+      summary: Submit a completed application
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                dataItems:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DataItemPost'
+              required:
+                - id
+                - dataItems
+      responses:
+        '201':
+          description: Successful application created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Responses submitted successfully"
+                  status:
+                    type: string
+                    enum: ['success', 'failure']
+                    example: 'success'
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Invalid data format"
+                  status:
+                    type: string
+                    enum: ['error']
+                    example: 'error'
+
+components:
+  schemas:
+    Stage:
+      type: object
+      properties:
+        order:
+          type: integer
+        title:
+          type: string
+        dataItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataItem'
+    DataItem:
+      type: object
+      properties:
+        dataItemId:
+          type: string
+          format: uuid
+        order:
+          type: integer
+        displayLabel:
+          type: string
+        parentDataItemId:
+          type: string
+          format: uuid
+        parentDataItemRequiredOption:
+          type: string
+        dataType:
+          type: string
+          enum: ['select', 'radio', 'checkbox', 'shortText', 'longText', 'date', 'currency', 'percentage', 'decimal']
+        dataOptions:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              value:
+                type: string
+          nullable: true
+      required:
+        - dataItemId
+        - order
+        - displayLabel
+        - dataType
+    DataItemPost:
+      type: object
+      properties:
+        dataItemId:
+          type: string
+          format: uuid
+        value:
+          type: string
+      required:
+        - dataItemId
+        - value
