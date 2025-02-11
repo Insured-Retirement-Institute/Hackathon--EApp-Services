@@ -35,13 +35,16 @@ public class ApplicationService : IApplicationService
 
     private static App PrepareApp(App appTemplate)
     {
+        var content = JsonSerializer.Serialize<App>(appTemplate);
+        var appClone = JsonSerializer.Deserialize<App>(content);
+
         var applicationId = Guid.NewGuid();
         var callbackUrl = $"application/submit";
 
-        appTemplate.Id = applicationId;
-        appTemplate.CallbackUrl = callbackUrl;
+        appClone.Id = applicationId;
+        appClone.CallbackUrl = callbackUrl;
 
-        var stages = appTemplate.Stages;
+        var stages = appClone.Stages;
         foreach (var stage in stages)
         {
             var items = stage.DataItems;
@@ -56,9 +59,9 @@ public class ApplicationService : IApplicationService
             stage.DataItems = items.OrderBy(item => item.Order).ToArray();
         }
 
-        appTemplate.Stages = stages.OrderBy(item => item.Order).ToArray();
+        appClone.Stages = stages.OrderBy(item => item.Order).ToArray();
 
-        return appTemplate;
+        return appClone;
     }
 
     private async Task<App[]> LoadApplicationsFromFile()

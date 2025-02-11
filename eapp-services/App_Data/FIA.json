@@ -519,7 +519,7 @@
       ]
     },
     {
-      "order": 6,
+      "order": 7,
       "title": "Personal Finances",
       "dataItems": [
         {
@@ -579,7 +579,7 @@
       ]
     },
     {
-      "order": 7,
+      "order": 8,
       "title": "Suitability",
       "dataItems": [
         {
@@ -657,7 +657,7 @@
       ]
     },
     {
-      "order": 8,
+      "order": 9,
       "title": "Funding",
       "dataItems": [
         {

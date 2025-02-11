@@ -12,6 +12,18 @@
         <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="9.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Update="App_Data\D2C.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="App_Data\FIA.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="App_Data\MYGA.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
     <!-- Create the App_Data folder if it doesn't exist -->
     <Target Name="CreateAppDataFolder" AfterTargets="AfterPublish">
         <MakeDir Directories="$(PublishDir)App_Data" Condition="!Exists('$(PublishDir)App_Data')" />
