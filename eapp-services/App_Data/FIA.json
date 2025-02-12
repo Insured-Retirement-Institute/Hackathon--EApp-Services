@@ -727,19 +727,19 @@
         "title": "Allocation",
         "dataItems": [
             {
-                "dataItemId": "",
+                "dataItemId": null,
                 "order": 1,
                 "displayLabel": "What are your core values? What principles do you abide by?",
                 "dataType": DataTypeEnum.longText
             },
             {
-                "dataItemId": "",
+                "dataItemId": null,
                 "order": 1,
                 "displayLabel": "Are there any particular industries that you are interested in? (Ex. Technology, Aviation, Energy, etc.)",
                 "dataType": DataTypeEnum.longText
             },
             {
-                "dataItemId": "",
+                "dataItemId": null,
                 "order": 1,
                 "displayLabel": "Would you prefer low-risk with steady returns, or are you okay with higher risk for potentially higher returns?",
                 "dataType": DataTypeEnum.longText
