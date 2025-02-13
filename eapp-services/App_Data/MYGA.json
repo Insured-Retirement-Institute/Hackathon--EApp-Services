@@ -730,153 +730,19 @@
               "dataItemId": null,
               "order": 1,
               "displayLabel": "What are your core values? What principles do you abide by?",
-              "dataType": "checkbox",
-              "dataOptions": [
-                {
-                  "label": "Integrity",
-                  "value": "Integrity"
-                },
-                {
-                  "label": "Empathy",
-                  "value": "Empathy"
-                },
-                {
-                  "label": "Honesty",
-                  "value": "Honesty"
-                },
-                {
-                  "label": "Compassion",
-                  "value": "Compassion"
-                },
-                {
-                  "label": "Respect",
-                  "value": "Respect"
-                },
-                {
-                  "label": "Responsibility",
-                  "value": "Responsibility"
-                },
-                {
-                  "label": "Accountability",
-                  "value": "Accountability"
-                },
-                {
-                  "label": "Fairness",
-                  "value": "Fairness"
-                },
-                {
-                  "label": "Creativity",
-                  "value": "Creativity"
-                },
-                {
-                  "label": "Curiosity",
-                  "value": "Curiosity"
-                },
-                {
-                  "label": "Loyalty",
-                  "value": "Loyalty"
-                },
-                {
-                  "label": "Courage",
-                  "value": "Courage"
-                },
-                {
-                  "label": "Transparency",
-                  "value": "Transparency"
-                },
-                {
-                  "label": "Growth",
-                  "value": "Growth"
-                },
-              ]
+              "dataType": "longText"
           },
           {
               "dataItemId": null,
               "order": 2,
               "displayLabel": "Are there any particular industries that you are interested in?",
-              "dataType": "checkbox",
-              "dataOptions": [
-                {
-                  "label": "Technology",
-                  "value": "Technology"
-                },
-                {
-                  "label": "Healthcare",
-                  "value": "Healthcare"
-                },
-                {
-                  "label": "Finance",
-                  "value": "Finance"
-                },
-                {
-                  "label": "Energy",
-                  "value": "Energy"
-                },
-                {
-                  "label": "Education",
-                  "value": "Education"
-                },
-                {
-                  "label": "Entertainment",
-                  "value": "Entertainment"
-                },
-                {
-                  "label": "Retail",
-                  "value": "Retail"
-                },
-                {
-                  "label": "Manufacturing",
-                  "value": "Manufacturing"
-                },
-                {
-                  "label": "Transportation",
-                  "value": "Transportation"
-                },
-                {
-                  "label": "Real Estate",
-                  "value": "Real Estate"
-                },
-                {
-                  "label": "Agriculture",
-                  "value": "Agriculture"
-                },
-                {
-                  "label": "Telecommunications",
-                  "value": "Telecommunications"
-                }
-              ]
+              "dataType": "longText"
           },
           {
               "dataItemId": null,
               "order": 3,
               "displayLabel": "What are you seeking out of this product?",
-              "dataType": "checkbox",
-              "dataOptions": [
-                {
-                  "label": "Safety",
-                  "value": "Safety"
-                },
-                {
-                  "label": "Growth",
-                  "value": "Growth"
-                },
-                {
-                  "label": "Risk",
-                  "value": "Risk"
-                },
-                {
-                  "label": "Careful",
-                  "value": "Careful"
-                },
-                {
-                  "label": "Income",
-                  "value": "Income"
-                },
-                {
-                  "label": "Protection",
-                  "value": "Protection"
-                }
-              ]
+              "dataType": "longText"
           }
       ]
   }
